@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda Institucional Profissional</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-calendar-alt"></i>
+                <h1>Agenda Institucional</h1>
+            </div>
+            <div class="controls">
+                <div class="current-date" id="currentDate"></div>
+                <div class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-sun"></i>
+                    <i class="fas fa-moon"></i>
+                    <div class="toggle-ball"></div>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <section class="calendar-section">
+                <h2 class="section-title">
+                    <i class="far fa-calendar"></i>
+                    Calendário
+                </h2>
+                
+                <div class="calendar-header">
+                    <div class="month-year" id="monthYear">Junho 2023</div>
+                    <div class="calendar-nav">
+                        <button id="prevMonth"><i class="fas fa-chevron-left"></i></button>
+                        <button id="todayBtn">Hoje</button>
+                        <button id="nextMonth"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+                
+                <div class="weekdays">
+                    <div class="weekday">Dom</div>
+                    <div class="weekday">Seg</div>
+                    <div class="weekday">Ter</div>
+                    <div class="weekday">Qua</div>
+                    <div class="weekday">Qui</div>
+                    <div class="weekday">Sex</div>
+                    <div class="weekday">Sáb</div>
+                </div>
+                
+                <div class="calendar-days" id="calendarDays"></div>
+            </section>
+
+            <section class="appointments-section">
+                <h2 class="section-title">
+                    <i class="far fa-clock"></i>
+                    Compromissos do Dia
+                </h2>
+                
+                <div class="appointment-form">
+                    <div class="form-group">
+                        <label for="appointmentTitle">Título</label>
+                        <input type="text" id="appointmentTitle" class="form-control" placeholder="Reunião de equipe">
+                    </div>
+                    <div class="form-group">
+                        <label for="appointmentTime">Horário</label>
+                        <input type="time" id="appointmentTime" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="appointmentDescription">Descrição</label>
+                        <textarea id="appointmentDescription" class="form-control" rows="3" placeholder="Detalhes do compromisso"></textarea>
+                    </div>
+                    <button id="addAppointment" class="btn btn-add">
+                        <i class="fas fa-plus"></i>
+                        Adicionar Compromisso
+                    </button>
+                    
+                    <div class="share-buttons-container" id="shareButtonsContainer">
+                        <div class="form-group">
+                            <label>Compartilhar compromisso:</label>
+                            <div class="share-buttons">
+                                <button type="button" id="shareEmail" class="btn btn-email">
+                                    <i class="fas fa-envelope"></i> E-mail
+                                </button>
+                                <button type="button" id="shareWhatsApp" class="btn btn-whatsapp">
+                                    <i class="fab fa-whatsapp"></i> WhatsApp
+                                </button>
+                                <button type="button" id="copyToClipboard" class="btn btn-copy">
+                                    <i class="fas fa-copy"></i> Copiar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="appointments-list" id="appointmentsList">
+                    <!-- Os compromissos serão inseridos aqui dinamicamente -->
+                </div>
+            </section>
+        </main>
+
+        <!-- Modal para edição de compromisso -->
+        <div class="modal" id="editModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="section-title">
+                        <i class="fas fa-edit"></i>
+                        Editar Compromisso
+                    </h3>
+                    <button class="close-modal" id="closeModal">&times;</button>
+                </div>
+                <div class="appointment-form">
+                    <div class="form-group">
+                        <label for="editTitle">Título</label>
+                        <input type="text" id="editTitle" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="editTime">Horário</label>
+                        <input type="time" id="editTime" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="editDescription">Descrição</label>
+                        <textarea id="editDescription" class="form-control" rows="3"></textarea>
+                    </div>
+                    <div class="form-group" style="display: flex; gap: 10px;">
+                        <button id="saveEdit" class="btn">
+                            <i class="fas fa-save"></i>
+                            Salvar
+                        </button>
+                        <button id="cancelEdit" class="btn" style="background-color: var(--accent-color);">
+                            <i class="fas fa-times"></i>
+                            Cancelar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal para compartilhamento -->
+        <div class="modal" id="shareModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="section-title">
+                        <i class="fas fa-share-alt"></i>
+                        Compartilhar Compromisso
+                    </h3>
+                    <button class="close-modal" id="closeShareModal">&times;</button>
+                </div>
+                <div class="share-preview" id="sharePreview">
+                    <!-- Preview do compromisso será inserido aqui -->
+                </div>
+                <div class="share-options">
+                    <div class="share-option email-option" id="modalShareEmail">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Enviar por E-mail</h4>
+                            <p>Envie os detalhes do compromisso por e-mail</p>
+                        </div>
+                    </div>
+                    <div class="share-option whatsapp-option" id="modalShareWhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                        <div>
+                            <h4>Enviar por WhatsApp</h4>
+                            <p>Compartilhe via WhatsApp Web</p>
+                        </div>
+                    </div>
+                    <div class="share-option copy-option" id="modalCopyToClipboard">
+                        <i class="fas fa-copy"></i>
+                        <div>
+                            <h4>Copiar Detalhes</h4>
+                            <p>Copie os detalhes para a área de transferência</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="success-message" id="successMessage">
+                    <i class="fas fa-check-circle"></i> Operação realizada com sucesso!
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <p>Agenda Institucional Profissional &copy; 2023 - Todos os direitos reservados</p>
+                
+                <div class="footer-column">
+                    <h3>Contato</h3>
+                    <a href="tel:+5541996684703"><i class="fas fa-phone"></i> 41 99668-4703</a>
+                    <a href="mailto:verkupp000@gmail.com"><i class="fas fa-envelope"></i> verkupp000@gmail.com</a>
+                    <a href="https://wa.me/5541996684703"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
