@@ -1,97 +1,45 @@
-# Agenda
-Agenda de compromisso
-Agenda Institucional Profissional
-Uma aplicação web moderna para gerenciamento de agenda institucional, oferecendo controle completo sobre compromissos com interface intuitiva e funcionalidades de compartilhamento.
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white) ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white) ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 
-✨ Funcionalidades
-📅 Calendário Dinâmico: Visualização mensal interativa com navegação entre meses
+# Agenda Institucional Profissional
 
-✅ Gestão de Compromissos:
+> Aplicação web de gestão de agenda e compromissos
 
-Adição de novos eventos com título, horário e descrição
+## 📌 Sobre o Projeto
 
-Edição completa de compromissos existentes
+Aplicação web moderna para gestão de agenda institucional, com controle completo de compromissos, calendário interativo e funcionalidades de compartilhamento.
 
-Exclusão de eventos com confirmação
+## ✨ Funcionalidades
 
-🔗 Compartilhamento:
+- Calendário dinâmico com navegação mensal
+- Adição, edição e exclusão de compromissos
+- Busca e organização por período
+- Compartilhamento de agenda
+- Interface intuitiva e responsiva
 
-Envio por e-mail com detalhes pré-preenchidos
+## 🛠️ Tecnologias Utilizadas
 
-Compartilhamento via WhatsApp
+| Tecnologia | Descrição |
+|------------|-----------|
+| **HTML5** | Estrutura semântica e acessível da página |
+| **CSS3** | Estilo visual, layout e responsividade |
+| **JavaScript** | Interatividade, manipulação do DOM e lógica do cliente |
 
-Cópia para área de transferência
+## 🚀 Como Executar
 
-🎨 Interface Moderna:
+1. Clone este repositório:
+   ```bash
+   git clone https://github.com/mariniltonquintanilha-hash/Agenda.git
+   ```
+2. Abra o arquivo `index.html` no navegador.
 
-Tema claro/escuro (Light/Dark Mode)
+## 📁 Estrutura do Projeto
 
-Design responsivo para todos os dispositivos
+```
+├── index.html    → Página principal
+├── style.css     → Estilos e responsividade
+└── script.js     → Lógica do calendário
+```
 
-Ícones intuitivos (Font Awesome)
+## 📄 Licença
 
-💾 Armazenamento Local: Todos os dados são salvos no localStorage do navegador
-
-🛠️ Tecnologias Utilizadas
-HTML5: Estrutura semântica e moderna
-
-CSS3: Estilização avançada com variáveis CSS, Flexbox e temas
-
-JavaScript (ES6+): Lógica completa da aplicação, manipulação do DOM e gerenciamento de estado
-
-Font Awesome 6: Conjunto de ícones para melhor experiência do usuário
-
-📁 Estrutura do Projeto
-text
-agenda-institucional/
-├── index.html          # Estrutura principal da aplicação
-├── style.css           # Estilos completos e temas
-└── script.js           # Lógica JavaScript da aplicação
-🚀 Como Executar
-Opção 1: Execução Local
-Clone o repositório ou baixe os arquivos
-
-Abra o arquivo index.html em qualquer navegador moderno
-
-Opção 2: Hospedagem
-Os arquivos podem ser hospedados em qualquer servidor web estático (GitHub Pages, Netlify, Vercel, etc.)
-
-📖 Guia de Uso
-Navegação no Calendário
-Use os botões ◀ e ▶ para navegar entre meses
-
-Clique em Hoje para retornar ao mês atual
-
-Clique em qualquer dia para visualizar/adicionar compromissos
-
-Adicionar Compromisso
-Clique no botão + Novo Compromisso
-
-Preencha os campos obrigatórios (título e horário)
-
-Adicione uma descrição (opcional)
-
-Clique em Salvar
-
-Gerenciar Compromissos
-Editar: Clique no ícone de lápis (✏️) no compromisso
-
-Excluir: Clique no ícone de lixeira (🗑️) no compromisso
-
-Compartilhar: Clique no ícone de compartilhar (📤) e escolha a opção desejada
-
-Alternar Tema
-Clique no ícone de sol/lua no canto superior direito para alternar entre modo claro e escuro.
-
-🔧 Persistência de Dados
-A aplicação utiliza o localStorage do navegador para armazenar todos os compromissos. Os dados permanecem disponíveis mesmo após fechar o navegador, mas são específicos para cada dispositivo/navegador.
-
-🌐 Compatibilidade
-Compatível com todos os navegadores modernos (Chrome, Firefox, Safari, Edge)
-
-Totalmente responsivo (desktop, tablet e mobile)
-
-Funciona offline após o primeiro carregamento
-
-📄 Licença
-Este projeto está disponível para uso institucional e pessoal.
+Projeto desenvolvido para fins de portfólio.
